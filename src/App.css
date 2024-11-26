@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.btn{
+  margin-left: 10px;
+}
+
+.btn-danger{
+  background-color: red;
+  
+}
