@@ -1,10 +1,18 @@
+
+import { useContext } from "react";
 import hasPermission, { User } from "../utils/auth";
+import { YearContext } from "../contexts/dataContext";
+
 
 interface RbackProps {
     user:User
 }
 
 function Rback({user}:RbackProps) {
+
+    const year = useContext(YearContext)
+
+
     return (
         <>
             Welcome to Role Based Access Control Authorize
@@ -13,6 +21,8 @@ function Rback({user}:RbackProps) {
                     <button className="btn btn-danger">Delete</button>
                 )
             }
+           
+            {year}
         </>
     );
 }
