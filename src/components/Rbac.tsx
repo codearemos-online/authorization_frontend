@@ -1,7 +1,9 @@
 
 import { useContext } from "react";
 import hasPermission, { User } from "../utils/auth";
-import { YearContext } from "../contexts/dataContext";
+import { CounterContext } from "../contexts/counterContext";
+
+
 
 
 interface RbackProps {
@@ -10,8 +12,8 @@ interface RbackProps {
 
 function Rback({user}:RbackProps) {
 
-    const year = useContext(YearContext)
 
+  const {counter,setCounter} = useContext(CounterContext);
 
     return (
         <>
@@ -21,8 +23,11 @@ function Rback({user}:RbackProps) {
                     <button className="btn btn-danger">Delete</button>
                 )
             }
-           
-            {year}
+
+            {counter}
+
+            <button onClick={() => setCounter(counter + 1)}>Incrementar</button>
+         
         </>
     );
 }
