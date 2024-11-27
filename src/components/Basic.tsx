@@ -1,8 +1,5 @@
+import { User } from "../utils/auth";
 
-interface User {
-    id: number,
-    role: string
-}
 
 const user: User = { id: 1, role: "admin" };
 
