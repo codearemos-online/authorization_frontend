@@ -5,7 +5,7 @@ export interface User {
 
 type Role = keyof typeof ROLES;
 
-type Permission = (typeof ROLES)[Role][number]
+export type Permission = (typeof ROLES)[Role][number]
 
 const ROLES = {
     admin:[
@@ -13,6 +13,7 @@ const ROLES = {
         "create:comments",
         "update:comments",
         "delete:comments",
+        "view:dashboard"
     ],
     moderator:[
         "view:comments",
@@ -25,11 +26,10 @@ const ROLES = {
     ]
 } as const;
 
-function hasPermission(
+export function hasPermission(
     user:User,
     permission: Permission
 ){
     return (ROLES[user.role] as readonly Permission[]).includes(permission)
 }
 
-export default hasPermission;
